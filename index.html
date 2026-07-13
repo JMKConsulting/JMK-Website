@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JMK Consulting: Bitcoin Strategy for Animal Rescues</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D2B45;
+    --navy-mid: #1A3D5C;
+    --navy-light: #2A5278;
+    --orange: #F7931A;
+    --orange-light: #FDB155;
+    --gold: #C9A84C;
+    --cream: #F5F3EF;
+    --cream-dark: #EAE7E1;
+    --white: #FFFFFF;
+    --text-dark: #0D2B45;
+    --text-mid: #3D5A73;
+    --text-light: #6B8AA0;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 96px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 80px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+
+  .nav-cta {
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--orange-light) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 100px 2rem 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '₿';
+    position: absolute;
+    font-size: 500px;
+    font-family: var(--serif);
+    color: rgba(255,255,255,0.03);
+    top: -80px;
+    right: -60px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(247,147,26,0.4);
+    padding: 6px 16px;
+    border-radius: 2px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 780px;
+    margin: 0 auto 1.5rem;
+    color: var(--white);
+  }
+
+  .hero h1 em {
+    color: var(--orange);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 1.125rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--orange-light); color: var(--navy); transform: translateY(-1px); }
+
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.85);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+  .hero-proof {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .proof-item {
+    text-align: center;
+  }
+
+  .proof-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--orange);
+    display: block;
+  }
+
+  .proof-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* SECTION BASE */
+  section { padding: 80px 2rem; }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-mid);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  /* PROBLEM SECTION */
+  .problem { background: var(--white); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .problem-card {
+    background: var(--cream);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 6px 6px 0;
+    padding: 1.5rem;
+  }
+
+  .problem-card h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .problem-card p {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .problem-stat {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .problem-stat-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--orange);
+    white-space: nowrap;
+  }
+
+  .problem-stat-text {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+  }
+
+  /* SERVICES */
+  .services { background: var(--cream); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .service-card:hover {
+    box-shadow: 0 8px 30px rgba(13,43,69,0.1);
+    transform: translateY(-2px);
+  }
+
+  .service-card.featured {
+    border: 2px solid var(--orange);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .service-tier {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .service-price {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    font-family: var(--serif);
+  }
+
+  .service-price span {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-family: var(--sans);
+    font-weight: 400;
+  }
+
+  .service-desc {
+    font-size: 0.875rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 1rem;
+  }
+
+  .service-includes {
+    list-style: none;
+    font-size: 0.875rem;
+    color: var(--text-mid);
+  }
+
+  .service-includes li {
+    padding: 4px 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .service-includes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+
+  .retainer-card {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .retainer-card { grid-template-columns: 1fr; }
+  }
+
+  .retainer-left h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .retainer-left p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  .retainer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .retainer-option {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+  }
+
+  .retainer-option.best {
+    border-color: var(--orange);
+    background: rgba(247,147,26,0.1);
+  }
+
+  .retainer-option-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  .retainer-option-price {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .retainer-option-price span {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--sans);
+    font-weight: 300;
+  }
+
+  .retainer-option-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+
+  .retainer-option.best .retainer-option-note {
+    color: var(--orange-light);
+  }
+
+  /* FREE CALL */
+  .free-call {
+    background: var(--cream-dark);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .free-call-badge {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .free-call h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .free-call p {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    max-width: 500px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.7;
+  }
+
+  /* ABOUT */
+  .about { background: var(--white); }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  @media (max-width: 680px) {
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  .dog-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .dog-photo-wrap {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+  }
+
+  .dog-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .dog-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(13,43,69,0.85));
+    padding: 2rem 0.75rem 0.75rem;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .dog-caption span {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+  }
+
+  .about-portrait {
+    background: var(--navy);
+    border-radius: 8px;
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 5rem;
+    color: rgba(255,255,255,0.1);
+  }
+
+  .about-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .credential {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .credential-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .credential p {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  .credential strong {
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-text p strong {
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .org-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .org-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    border: 1px solid var(--cream-dark);
+    padding: 7px 14px;
+    border-radius: 4px;
+    background: var(--cream);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .org-link:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* CTA */
+  .cta-section {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 2rem;
+  }
+
+  .cta-section .section-title {
+    color: var(--white);
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+
+  .cta-section p {
+    color: rgba(255,255,255,0.65);
+    font-size: 1rem;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+  }
+
+  .cta-contact {
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .cta-contact a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080F18;
+    color: rgba(255,255,255,0.35);
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  footer a:hover { color: var(--orange); }
+
+  /* DIVIDER */
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: var(--orange);
+    margin: 1.25rem 0;
+  }
+
+  .has-dropdown { position: relative; }
+
+  .dropdown-trigger { cursor: pointer; }
+
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    min-width: 280px;
+  }
+
+  .has-dropdown:hover .nav-dropdown { display: block; }
+
+  .nav-dropdown-inner {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(13,43,69,0.15);
+  }
+
+  .nav-drop-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--cream-dark);
+    transition: background 0.15s;
+  }
+
+  .nav-drop-item:last-child { border-bottom: none; }
+  .nav-drop-item:hover { background: var(--cream); }
+
+  .nav-drop-item.featured-drop { background: rgba(247,147,26,0.06); }
+  .nav-drop-item.featured-drop:hover { background: rgba(247,147,26,0.12); }
+
+  .drop-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .nav-drop-item.featured-drop .drop-label { color: var(--orange); }
+
+  .drop-desc {
+    font-size: 11px;
+    color: var(--text-light);
+  }
+
+  .bio-dropdown {
+    margin: 1.5rem 0;
+    border: 1px solid var(--cream-dark);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .bio-dropdown summary {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--navy);
+    background: var(--cream);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .bio-dropdown summary:hover { background: var(--cream-dark); }
+
+  .bio-dropdown summary::-webkit-details-marker { display: none; }
+
+  .bio-dropdown summary::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--orange);
+    font-weight: 300;
+    transition: transform 0.2s;
+  }
+
+  .bio-dropdown[open] summary::after {
+    content: '-';
+  }
+
+  .bio-content {
+    padding: 1.25rem;
+    background: var(--white);
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .bio-content p {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .bio-content p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    section { padding: 60px 1.25rem; }
+    .hero { padding: 70px 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="Logo1.png" alt="JMK Consulting">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li class="has-dropdown">
+      <a href="#services" class="dropdown-trigger">Pricing &#9662;</a>
+      <div class="nav-dropdown">
+        <div class="nav-dropdown-inner">
+          <a href="#services" class="nav-drop-item">
+            <span class="drop-label">Free Discovery Call</span>
+            <span class="drop-desc">30-45 min, no cost, no commitment</span>
+          </a>
+          <a href="#services" class="nav-drop-item">
+            <span class="drop-label">Tier 1: Bitcoin Donation Readiness</span>
+            <span class="drop-desc">$500 one-time setup</span>
+          </a>
+          <a href="#services" class="nav-drop-item">
+            <span class="drop-label">Tier 2: Donation + Treasury Strategy</span>
+            <span class="drop-desc">$1,200 one-time</span>
+          </a>
+          <a href="#services" class="nav-drop-item featured-drop">
+            <span class="drop-label">Launch + Guard Bundle</span>
+            <span class="drop-desc">$1,500 one-time, most popular</span>
+          </a>
+          <a href="#services" class="nav-drop-item">
+            <span class="drop-label">Ongoing Advisory Retainer</span>
+            <span class="drop-desc">$150/mo or $1,500/yr Annual Partner rate</span>
+          </a>
+        </div>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="#about" class="dropdown-trigger">About &#9662;</a>
+      <div class="nav-dropdown">
+        <div class="nav-dropdown-inner">
+          <a href="#about" class="nav-drop-item">
+            <span class="drop-label">About Joel Kuhns</span>
+            <span class="drop-desc">Background, credentials, and mission</span>
+          </a>
+          <a href="#about" class="nav-drop-item">
+            <span class="drop-label">Why Bitcoin for Bullies</span>
+            <span class="drop-desc">The story behind the work</span>
+          </a>
+          <a href="https://bitcoinforbullies.com" target="_blank" class="nav-drop-item">
+            <span class="drop-label">Bitcoin for Bullies ↗</span>
+            <span class="drop-desc">Visit bitcoinforbullies.com</span>
+          </a>
+          <a href="https://denver.space" target="_blank" class="nav-drop-item">
+            <span class="drop-label">The Space Education Foundation ↗</span>
+            <span class="drop-desc">Visit denver.space</span>
+          </a>
+        </div>
+      </div>
+    </li>
+    <li><a href="#contact" class="nav-cta">Book Free Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Bitcoin Consulting for Animal Rescues</div>
+  <h1>Your rescue deserves a <em>financial strategy</em> as strong as your mission.</h1>
+  <p class="hero-sub">Most dog rescues spend every dollar the moment it comes in. JMK Consulting helps nonprofits accept Bitcoin donations and finally build the reserves they've never had.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Book Your Free Discovery Call</a>
+    <a href="#services" class="btn-ghost">See Services</a>
+  </div>
+  <div class="hero-proof">
+    <div class="proof-item">
+      <span class="proof-num">34%</span>
+      <span class="proof-label">of nonprofits have no reserve fund</span>
+    </div>
+    <div class="proof-item">
+      <span class="proof-num">&lt;3mo</span>
+      <span class="proof-label">avg operating reserves for rescues</span>
+    </div>
+    <div class="proof-item">
+      <span class="proof-num">$0</span>
+      <span class="proof-label">cost to start the conversation</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="section-eyebrow">The Reality</div>
+    <h2 class="section-title">Running on fumes is no way to save dogs.</h2>
+    <p class="section-sub">Dog rescues do extraordinary work, but most operate in a perpetual financial squeeze that leaves them one slow fundraising month away from crisis.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3>Donations disappear immediately</h3>
+        <p>Vet bills, food, transport, foster supplies: every dollar that comes in goes right back out. There's no cushion, no plan, and no way to say no to a dog in need.</p>
+      </div>
+      <div class="problem-card">
+        <h3>No long-term savings strategy</h3>
+        <p>Most small rescues have never thought about holding reserves as a financial strategy. Bitcoin changes that calculus, but only if someone shows you how.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Bitcoin donors have nowhere to give</h3>
+        <p>A growing segment of mission-driven donors holds Bitcoin. Right now, most rescues can't accept it, which means they're leaving donations on the table every month.</p>
+      </div>
+    </div>
+    <div class="problem-stat">
+      <div class="problem-stat-num">1 in 3</div>
+      <div class="problem-stat-text">nonprofits have no reserve fund separate from operating cash, meaning a single bad month could force them to turn away animals. Bitcoin, held strategically, is a solution that fits how rescues already operate.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-eyebrow">Services</div>
+    <h2 class="section-title">The right level of support for where you are.</h2>
+    <p class="section-sub">Every engagement starts with a free conversation. From there, we match your rescue's readiness: operational, strategic, or both.</p>
+
+    <!-- FREE CALL -->
+    <div class="free-call">
+      <div class="free-call-badge">Start Here -- Always Free</div>
+      <h3>Discovery Call</h3>
+      <p>A 30–45 minute conversation to understand your rescue's donation setup, reserve situation, and technical comfort level. No pitch. No pressure. Just clarity on whether this path is right for you.</p>
+      <a href="#contact" class="btn-primary">Schedule My Free Call</a>
+    </div>
+
+    <!-- TIER 1 + 2 -->
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-tier">Tier 1</div>
+        <div class="service-name">Bitcoin Donation Readiness</div>
+        <div class="service-price">$500 <span>one-time</span></div>
+        <p class="service-desc">For rescues that want to start accepting Bitcoin and converting to USD immediately. No custody, no complexity. Just a new donation channel that works.</p>
+        <ul class="service-includes">
+          <li>Wallet & platform selection and setup</li>
+          <li>Donation page integration</li>
+          <li>Donor-facing explainer materials</li>
+          <li>Basic tax & accounting guidance</li>
+          <li>Staff/volunteer training session</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-tier">Tier 2</div>
+        <div class="service-name">Bitcoin Donation + Treasury Strategy</div>
+        <div class="service-price">$1,200 <span>one-time</span></div>
+        <p class="service-desc">For rescues ready to accept Bitcoin <em>and</em> start building a reserve. This is the full financial resilience engagement: operational setup plus a long-term savings plan.</p>
+        <ul class="service-includes">
+          <li>Everything in Tier 1</li>
+          <li>Reserve policy development</li>
+          <li>Cold storage or custody setup guidance</li>
+          <li>Bitcoin savings plan (% hold vs. convert)</li>
+          <li>One quarterly check-in (first year)</li>
+        </ul>
+      </div>
+
+      <div class="service-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="service-tier">Bundle</div>
+        <div class="service-name">Launch + Guard Bundle</div>
+        <div class="service-price">$1,500 <span>one-time, saves $200</span></div>
+        <p class="service-desc">The complete package. Includes everything in Tier 2 plus a dedicated Board Education Session: the single biggest obstacle to Bitcoin adoption, solved.</p>
+        <ul class="service-includes">
+          <li>Everything in Tier 1 & Tier 2</li>
+          <li>60-min Board Education Session</li>
+          <li>Bitcoin basics for board members</li>
+          <li>Treasury policy board presentation</li>
+          <li>IRS & tax treatment overview</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RETAINER -->
+    <div class="retainer-card">
+      <div class="retainer-left">
+        <div class="service-tier" style="color: var(--orange);">Tier 3</div>
+        <h3>Ongoing Advisory Retainer</h3>
+        <p>Continued support as your Bitcoin strategy matures: board questions, staff turnover onboarding, accounting changes, and custody updates. Month-to-month or lock in savings with our Annual Partner rate.</p>
+      </div>
+      <div class="retainer-options">
+        <div class="retainer-option">
+          <div class="retainer-option-label">Monthly</div>
+          <div class="retainer-option-price">$150 <span>/ month</span></div>
+          <div class="retainer-option-note">Cancel anytime, no contract</div>
+        </div>
+        <div class="retainer-option best">
+          <div class="retainer-option-label">Annual Partner Rate</div>
+          <div class="retainer-option-price">$1,500 <span>/ year</span></div>
+          <div class="retainer-option-note">2 months free. Pay once, covered all year.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div>
+        <div class="dog-photos">
+          <div class="dog-photo-wrap">
+            <img src="honey.jpg" alt="Honey, pit bull/lab mix">
+            <div class="dog-caption">Honey<span>Pit Bull / Lab Mix</span></div>
+          </div>
+          <div class="dog-photo-wrap">
+            <img src="basia.jpg" alt="Basia, pit bull/boxer mix">
+            <div class="dog-caption">Basia<span>Pit Bull / Boxer Mix</span></div>
+          </div>
+        </div>
+        <div class="about-credentials">
+          <div class="credential">
+            <div class="credential-dot"></div>
+            <p><strong>Bitcoin for Bullies</strong>: Co-founder, President. A 501(c)(3) that funds pit bull rescue partners and educates rescues on accepting Bitcoin.</p>
+          </div>
+          <div class="credential">
+            <div class="credential-dot"></div>
+            <p><strong>The Space Education Foundation</strong>: Executive Director. Bitcoin-focused nonprofit education and coworking near Denver.</p>
+          </div>
+          <div class="credential">
+            <div class="credential-dot"></div>
+            <p><strong>Master's in Project Management</strong>, CSU Global. Certified Scrum Master. Six Sigma Orange Belt.</p>
+          </div>
+          <div class="credential">
+            <div class="credential-dot"></div>
+            <p>Enterprise clients include <strong>Nike, Vail Resorts, UPS, Tractor Supply</strong> and more through consulting firms North Highland and MercuryGate.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow">About Joel Kuhns</div>
+        <h2 class="section-title">I didn't just study this. I built it.</h2>
+        <div class="divider"></div>
+        <p>When my wife Carolyn and I co-founded <strong>Bitcoin for Bullies</strong>, we didn't just want to advocate for pit bull-type dogs. We wanted to show the rescue community that Bitcoin could be a genuine financial tool for nonprofits. Not a gimmick. Not a tech experiment. A real way to diversify revenue and build the reserves most rescues have never had.</p>
+        <p>I've spent years in project and program management, helping enterprise organizations build and execute strategy. Now I'm bringing those same skills to the rescue community: an industry I know from the inside, for organizations I genuinely care about.</p>
+        <p>When you work with JMK Consulting, you're not getting a crypto bro who loves dogs. You're getting a <strong>nonprofit operator who runs a Bitcoin-accepting rescue organization</strong>, understands your board's concerns, your accountant's questions, and your ED's bandwidth constraints, and can walk you through all of it step by step.</p>
+
+        <details class="bio-dropdown">
+          <summary>Why I started Bitcoin for Bullies</summary>
+          <div class="bio-content">
+            <p>It started with a dog named Basia. My wife Carolyn and I adopted her from the Denver Animal Shelter, where she had been brought in as a stray: underweight, ribs showing, seven months old and already fighting for her life. She was a pit bull/boxer mix, the kind of dog that gets overlooked, misunderstood, and left waiting the longest. We brought her home, and she became the center of our world. She was the first dog Carolyn and I had together, and she changed us.</p>
+            <p>Later in life, Basia was diagnosed with a vestibular tumor. Most dogs with that diagnosis live only a few months. Basia gave us nearly a full year more. Every day she reminded us what resilience looks like. We loved her deeply, and losing her only strengthened our commitment to the dogs still waiting.</p>
+            <p>About two and a half years ago, we adopted Honey, a pit bull/lab mix, through A Friend of Jack rescue in Denver. Carolyn had followed Honey's story for years before we finally brought her home. Honey came to A Friend of Jack from a rescue in Roswell, New Mexico, where she had been found as part of a dog fighting operation. She was most likely used as a bait dog and to produce puppies for the organizers. She had every reason not to trust people. She trusts us completely. She's our girl, and she's a daily reminder of what these dogs are capable of when someone gives them a chance.</p>
+            <p>Bitcoin for Bullies was built on all of that: the love for these dogs, the frustration with how underfunded their rescues are, and a belief that Bitcoin could be a real financial tool for nonprofits doing the hard work. We fund partner rescues that pull pit bull-type dogs from shelters, and we help those rescues start accepting Bitcoin so they can reach a donor base that's largely been closed off to them. JMK Consulting grew directly out of that work.</p>
+          </div>
+        </details>
+
+        <div class="org-links">
+          <a href="https://bitcoinforbullies.com" target="_blank" class="org-link">Bitcoin for Bullies ↗</a>
+          <a href="https://denver.space" target="_blank" class="org-link">The Space Education Foundation ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="section-eyebrow" style="color: var(--orange);">Get Started</div>
+    <h2 class="section-title">Ready to find out if Bitcoin is right for your rescue?</h2>
+    <p>The discovery call is free, there's no commitment, and you'll leave with clarity, even if we decide it's not the right fit yet.</p>
+    <a href="https://calendly.com/joel-jmkconsulting/" class="btn-primary" style="font-size: 16px; padding: 16px 40px;">Book Your Free Discovery Call</a>
+    <div class="cta-contact">Or reach out directly: <a href="mailto:joel@jmkconsulting.io">joel@jmkconsulting.io</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 JMK Consulting &nbsp;|&nbsp; <a href="mailto:joel@jmkconsulting.io">joel@jmkconsulting.io</a> &nbsp;|&nbsp; Denver, CO</p>
+</footer>
+
+</body>
+</html>
